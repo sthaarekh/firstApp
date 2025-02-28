@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, SafeAreaView, StyleSheet, useColorScheme, Appearance } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Appearance } from 'react-native'
 function AppPro(): JSX.Element{
     const isDarkMode = Appearance.getColorScheme();
   return (
