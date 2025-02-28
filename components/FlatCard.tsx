@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 
 export default function FlatCard() {
   return (
     <View>
       <Text style={styles.headingText}>Flat Cards</Text>
-      <View style={styles.container}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.container}>
         <View style={[styles.card, styles.cardOne]}>
             <Text style={styles.headingText}>Red</Text>
         </View>
@@ -18,7 +18,7 @@ export default function FlatCard() {
         <View style={[styles.card, styles.cardFour]}>
             <Text style={styles.headingText}>Yellow</Text>
         </View>
-      </View>
+      </ScrollView>
     </View>
   )
 }
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: 'row',
-        padding: 8
+        padding: 8,
     },
     card:{
         flex: 1,
