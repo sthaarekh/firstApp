@@ -30,15 +30,47 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         color: 'white'
     },
-    card:{},
-    cardElevated:{},
-    cardImage:{
-        height: 180,
-        
+    card: {
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        margin: 10,
+        overflow: 'hidden',
     },
-    cardBody:{},
-    cardTitle:{},
-    cardLabel:{},
-    cardDescription:{},
-    cardFooter:{},
+    cardElevated: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    cardImage: {
+        width: '100%',
+        height: 200,
+        resizeMode: 'cover',
+    },
+    cardBody: {
+        padding: 15,
+    },
+    cardTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 5,
+    },
+    cardLabel: {
+        fontSize: 14,
+        color: '#666',
+        marginBottom: 10,
+    },
+    cardDescription: {
+        fontSize: 16,
+        color: '#444',
+        lineHeight: 22,
+        marginBottom: 10,
+    },
+    cardFooter: {
+        fontSize: 14,
+        fontWeight: '600',
+        color: '#007BFF',
+    },
 })
