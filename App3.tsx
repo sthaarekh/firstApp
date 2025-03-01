@@ -1,6 +1,8 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import * as Yup from 'yup'
+import { Formik } from 'formik'
+import BouncyCheckbox from 'react-native-bouncy-checkbox'
 
 const passwordSchema = Yup.object().shape({
     passwordLength: Yup.number()
@@ -54,11 +56,73 @@ export default function App3() {
     }   
 
     return (
-        <SafeAreaView>
-            <ScrollView>
-                <Text style={styles.headingText}> Password Generator</Text>
+            <ScrollView keyboardShouldPersistTaps="handled">
+                <SafeAreaView style={styles.appContainer}>
+                    <View style={styles.formContainer}>
+                        <Text style={styles.headingText}> Password Generator</Text>
+                        <Formik
+                        initialValues={{ passwordLength: '' }}
+                        validationSchema={passwordSchema}
+                        onSubmit={values=>{
+                            console.log(values)
+                            generatePassword(+values.passwordLength)
+                        }}
+                        >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            isValid,
+                            handleChange,
+                            handleSubmit,
+                            handleReset,
+                        }) => (
+                           <>
+                           <View style={styles.inputWrapper}>
+                            <View style={styles.inputColumn}>
+                                <Text style={styles.heading}>Password Length</Text>
+                                {touched.passwordLength && errors.passwordLength && (
+                                    <Text style={styles.errorText}>{errors.passwordLength}</Text>
+                                )}
+                               
+                            </View>
+                            <TextInput 
+                                style={styles.inputStyle}
+                                value={values.passwordLength}
+                                onChangeText={handleChange('passwordLength')}
+                                placeholder='Ex. 8'
+                                keyboardType='numeric'/>
+                           </View>
+                           <View style={styles.inputWrapper}>
+                            <Text style={styles.heading}>Include Lower Case</Text>
+                            <BouncyCheckbox
+                            disableBuiltInState
+                            isChecked={lowerCase}
+                            fillColor='#29AB8&'
+                            />
+                           </View>
+                           <View style={styles.inputWrapper}></View>
+                           <View style={styles.inputWrapper}></View>
+                           <View style={styles.inputWrapper}></View>
+
+                        <View style={styles.formAction}>
+                            <TouchableOpacity>
+                                <Text>
+                                Generate Passowd
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Text>
+                                Reset
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                           </>
+                        )}
+                        </Formik>
+                    </View>
+                </SafeAreaView>
             </ScrollView>
-        </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
