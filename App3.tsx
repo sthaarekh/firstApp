@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import * as Yup from 'yup'
 
 const passwordSchema = Yup.object().shape({
@@ -9,13 +9,30 @@ const passwordSchema = Yup.object().shape({
     .required()
 })
 export default function App3() {
-  return (
-    <SafeAreaView>
-        <ScrollView>
-            <Text style={styles.headingText}> Password Generator</Text>
-        </ScrollView>
-    </SafeAreaView>
-  )
+    const [password, setPassword] = useState('')
+    const [isPassGenerated, setIsPassGenerated] = useState(false)
+    const [lowerCase, setLowerCase] = useState(true)
+    const [upperCase, setUpperCase] = useState(false)
+    const [numbers, setNumbers] = useState(false)
+    const [symbols, setSymbols] = useState(false)
+
+    const generatePassword = (passwordLength : number)=>{
+        //
+    }
+    const createPassword = (characters : string, passwordLength : number)=>{
+
+    }
+    const resetPasswordState = ()=>{
+
+    }
+
+    return (
+        <SafeAreaView>
+            <ScrollView>
+                <Text style={styles.headingText}> Password Generator</Text>
+            </ScrollView>
+        </SafeAreaView>
+    )
 }
 const styles = StyleSheet.create({
     headingText:{
