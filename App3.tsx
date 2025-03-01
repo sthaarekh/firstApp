@@ -92,19 +92,39 @@ export default function App3() {
                                 onChangeText={handleChange('passwordLength')}
                                 placeholder='Ex. 8'
                                 keyboardType='numeric'/>
-                           </View>
-                           <View style={styles.inputWrapper}>
-                            <Text style={styles.heading}>Include Lower Case</Text>
-                            <BouncyCheckbox
-                            disableBuiltInState
-                            isChecked={lowerCase}
-                            fillColor='#29AB8&'
-                            />
-                           </View>
-                           <View style={styles.inputWrapper}></View>
-                           <View style={styles.inputWrapper}></View>
-                           <View style={styles.inputWrapper}></View>
-
+                                <View style={styles.inputWrapper}>
+                                    <Text style={styles.heading}>Include Lower Case</Text>
+                                    <BouncyCheckbox
+                                    disableBuiltInState
+                                    isChecked={lowerCase}
+                                    fillColor='#29AB8'
+                                    />
+                                </View>
+                                <View style={styles.inputWrapper}>
+                                    <Text style={styles.heading}>Include Upper Case</Text>
+                                    <BouncyCheckbox
+                                    disableBuiltInState
+                                    isChecked={upperCase}
+                                    fillColor='#29AB8'
+                                    />
+                                </View>
+                                <View style={styles.inputWrapper}>
+                                    <Text style={styles.heading}>Include Symbols</Text>
+                                    <BouncyCheckbox
+                                    disableBuiltInState
+                                    isChecked={symbols}
+                                    fillColor='#29AB8'
+                                    />
+                                </View>
+                                <View style={styles.inputWrapper}>
+                                    <Text style={styles.heading}>Include Numbers</Text>
+                                    <BouncyCheckbox
+                                    disableBuiltInState
+                                    isChecked={numbers}
+                                    fillColor='#29AB8'
+                                    />
+                                </View>
+                            </View>
                         <View style={styles.formAction}>
                             <TouchableOpacity>
                                 <Text>
