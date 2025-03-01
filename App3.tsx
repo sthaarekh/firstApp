@@ -17,7 +17,24 @@ export default function App3() {
     const [symbols, setSymbols] = useState(false)
 
     const generatePassword = (passwordLength : number)=>{
-        //
+        let characterList = ''
+        const upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz';
+        const digitChars = '1234567890';
+        const specialChars = '!@#$%^&*_+'
+
+        if(upperCase)
+            characterList += upperCaseChars
+        if(lowerCase)
+            characterList +=lowerCaseChars
+        if(numbers)
+            characterList += digitChars
+        if(symbols)
+            characterList += specialChars
+
+        const passworResult = createPassword(characterList, passwordLength)
+        setPassword(passworResult)
+        setIsPassGenerated(true)
     }
     const createPassword = (characters : string, passwordLength : number)=>{
         let result =''
@@ -28,8 +45,13 @@ export default function App3() {
         return result;
     }
     const resetPasswordState = ()=>{
-
-    }
+        setPassword('')
+        setIsPassGenerated(false)
+        setLowerCase(true)
+        setNumbers(false)
+        setUpperCase(false)
+        setSymbols(false)
+    }   
 
     return (
         <SafeAreaView>
