@@ -4,10 +4,10 @@
 
 import {AppRegistry} from 'react-native';
 import App from './App';
-import App2 from './App2';
-import App3 from './App3';
-import App4 from './App4';
-import App5 from './App5';
+import App2 from './PJ2_Cards';
+import App3 from './PJ3_PasswordGenerator';
+import App4 from './PJ4_RandomBg';
+import App5 from './PJ5_RollTheDice';
 import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App5);
