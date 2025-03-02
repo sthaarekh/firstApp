@@ -7,10 +7,16 @@ import DiceThree from './assets/PJ5/Three.png'
 import DiceFour from './assets/PJ5/Four.png'
 import DiceFive from './assets/PJ5/Five.png'
 import DiceSix from './assets/PJ5/Six.png'
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 type DiceProps = PropsWithChildren<{
   imageURL: ImageSourcePropType
 }>
+
+const options = {
+  enableVibrateFallback: true,
+  ignoreAndroidSystemSettings: true,
+};
 
 const Dice=({imageURL}: DiceProps): JSX.Element=>{
   return(
@@ -45,6 +51,7 @@ export default function App5() {
       default:
         break;
     }
+    ReactNativeHapticFeedback.trigger("impactHeavy", options);
   }
   return (
     <View style={styles.container}>
