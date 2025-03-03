@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { currencyByRupee } from './assets/PJ6/constants'
 import CurrencyButton from './assets/PJ6/Components/CurrencyButton'
 import Snackbar from 'react-native-snackbar'
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback'
 
 export default function PJ6_CurrencyConverter() {
     const [inputValue, setInputValue] = useState('')
@@ -18,12 +19,20 @@ export default function PJ6_CurrencyConverter() {
             })
         }
 
+        const options = {
+            enableVibrateFallback: true,
+            ignoreAndroidSystemSettings: true,
+          };
+
+          
         const inputAmount = parseFloat(inputValue);
             if(!isNaN(inputAmount)){
+                ReactNativeHapticFeedback.trigger("impactLight", options);
                 const convertedValue = inputAmount * tragetValue.value;
                 const result = `${tragetValue.symbol} ${convertedValue.toFixed(2)}`
                 setResultValue(result);
                 setTargetCurrency(tragetValue.name)
+
             }  else{
                 return Snackbar.show({
                     text: "Not a valid number to convert",
