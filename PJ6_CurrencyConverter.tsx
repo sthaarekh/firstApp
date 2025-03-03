@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { currencyByRupee } from './assets/PJ6/constants'
 import CurrencyButton from './assets/PJ6/Components/CurrencyButton'
@@ -32,13 +32,105 @@ export default function PJ6_CurrencyConverter() {
                 })
             }
         }
-    }
 
   return (
-    <View>
-      <Text>PJ6_CurrencyConverter</Text>
+    <>
+    <View style={styles.container}>
+        <View style={styles.topContainer}>
+            <View style={styles.nrsContainer}>
+                <Text style={styles.nrs}>रु</Text>
+                <TextInput style={styles.input}
+                maxLength={14} 
+                value={inputValue} 
+                clearButtonMode='always' 
+                onChangeText={setInputValue} 
+                keyboardType='number-pad' 
+                placeholder='Enter amount in Rupees'/>
+            </View>
+            {resultValue && (
+                <Text style={styles.resultTxt}>
+                    {resultValue}
+                </Text>
+            )}
+        </View>
+        <View style={styles.bottomContainer}>
+            <FlatList 
+            numColumns={3}
+            data={currencyByRupee}
+            keyExtractor={item=>item.name}
+            renderItem={({item})=>(
+                <Pressable
+                style={[styles.button, 
+                targetCurrency === item.name && styles.selected]
+                 }
+                 onPress={()=>buttonPress(item)}>
+                <CurrencyButton {...item}/>
+                </Pressable>
+            )}/>
+        </View>
     </View>
+    </>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: '#f0f4f8', // Light subtle background
+        padding: 20,
+    },
+    topContainer: {
+        width: '100%',
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        padding: 15,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+        elevation: 4, // Adds shadow for Android
+    },
+    nrsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#d1d1d1',
+        borderRadius: 10,
+        paddingHorizontal: 12,
+        paddingVertical: 10,
+        backgroundColor: '#fafafa',
+    },
+    nrs: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#333',
+        marginRight: 8,
+    },
+    input: {
+        flex: 1,
+        fontSize: 16,
+        color: '#000',
+        paddingVertical: 5,
+    },
+    resultTxt: {
+        fontSize: 24,
+        fontWeight: "bold",
+        color: "#333",
+        textAlign: "center",
+        marginVertical: 20,
+    },
+    bottomContainer: {
+        marginTop: 20,
+        paddingBottom: 30,
+    },
+    button: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 10,
+    },
+    selected: {
+        backgroundColor: "#4CAF50",
+    },
+})
