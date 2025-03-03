@@ -7,7 +7,7 @@ export const playListData : Track[] = [
         artist: 'Rita Thapa Magar',
         album: 'Personal',
         artwork:'./artwork/jambhanyo.jpeg',
-        url: './music/A Aama Jam Bhanyo Malai - Rita Thapa Magar Prakash Saput Sanisha Bhattarai New Nepali Song.mp3'
+        url: './music/jambhanyo.mp3'
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const playListData : Track[] = [
         artist: 'AJR',
         album: 'Personal',
         artwork:'./artwork/ajr.jpeg',
-        url: './music/AJR - The Good Part (Official Video).mp3'
+        url: './music/ajr.mp3'
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ export const playListData : Track[] = [
         artist: 'Purna Rai',
         album: 'Sparsha Sangeet',
         artwork:'./artwork/Sparsha.jpeg',
-        url: './music/Meri maya fula jasti Sparsha Sangeet Purna Rai and dajubhaiharu lyrics video.mp3'
+        url: './music/sparsha.mp3'
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ export const playListData : Track[] = [
         artist: 'Bijay Baral, Anjana Baraili',
         album: 'Purna Bahadur Ko Sarangi',
         artwork:'./artwork/raiya.jpeg',
-        url: './music/RAIYA CHANDIKO - Purna Bahadur Ko Sarangi - New Dohori Movie Song Ft. Bijay Baral, Anjana Baraili.mp3'
+        url: './music/raiya.mp3'
     },
     {
         id: 5,
@@ -39,7 +39,7 @@ export const playListData : Track[] = [
         artist: 'Sage The Gemini',
         album: 'Scoob',
         artwork:'./artwork/scoob.jpeg',
-        url: './music/Tick Tick Boom - Sage The Gemini ft. BygTwo3 (from Scoob The Album) Official Audio 11.51.15 AM.mp3'
+        url: './music/scoob.mp3'
     },
     
 ]

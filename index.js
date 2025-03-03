@@ -3,6 +3,8 @@
  */
 
 import {AppRegistry} from 'react-native';
+import TrackPlayer from 'react-native-track-player';
+import { playbackService } from './musicPlayerServices';
 import App from './App';
 import App2 from './PJ2_Cards';
 import App3 from './PJ3_PasswordGenerator';
@@ -12,3 +14,4 @@ import PJ6_CurrencyConverter from './PJ6_CurrencyConverter';
 import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => PJ6_CurrencyConverter);
+TrackPlayer.registerPlaybackService(() => playbackService);
